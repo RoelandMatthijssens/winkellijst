@@ -28,11 +28,14 @@ group :development, :test do
 	gem 'shoulda-matchers'
 	gem 'factory_girl_rails', '~> 4.0'
 	gem 'faker'
+	gem 'guard-spork'
+	gem 'guard-rspec'
 end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'simple_form'
+gem 'chosen-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

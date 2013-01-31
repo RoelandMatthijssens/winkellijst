@@ -1,5 +1,9 @@
 WinkelLijst::Application.routes.draw do
   resources :items
+	resources :shopping_items do
+		put :mark, on: :member
+		put :unmark, on: :member
+	end
 
 
   # The priority is based upon order of creation:

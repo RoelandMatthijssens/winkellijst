@@ -1,0 +1,2 @@
+$("#shopping_item-<%= @shopping_item.id %>").remove()
+$("#shopping_items").append('<%= j render :partial => "shopping_item_list_row", :locals => {shopping_item: @shopping_item} %>')

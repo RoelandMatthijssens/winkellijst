@@ -11,13 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130131105018) do
+ActiveRecord::Schema.define(:version => 20130131151102) do
 
   create_table "items", :force => true do |t|
     t.string   "name"
-    t.float    "amount"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.float    "price"
+  end
+
+  create_table "shopping_items", :force => true do |t|
+    t.float    "amount"
+    t.integer  "item_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "marked",     :default => false
   end
 
 end

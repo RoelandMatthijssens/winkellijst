@@ -1,7 +1,13 @@
 @import "bootstrap";
-
+.table td, .table th{
+ vertical-align:middle;
+}
 th.small, td.small{
 	width:10%;
 }
 
+tr.marked {
+	background-color: lighten(gray, 30%);
+	color: darken(gray, 10%);
+}
 @import "bootstrap-responsive";

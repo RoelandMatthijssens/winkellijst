@@ -1,0 +1,17 @@
+<table class="table">
+	<tr>
+		<th class="small"></th>
+		<th>Name</th>
+		<th>Amount</th>
+		<th class="small"></th>
+	</tr>
+	<tr>
+		<tbody id="shopping_items">
+			<% @shopping_items.each do |shopping_item| %>
+				<%= render partial:"shopping_item_list_row", locals:{shopping_item:shopping_item} %>
+			<% end %>
+		</tbody>
+	</tr>
+</table>
+
+<%= render "form" %>
