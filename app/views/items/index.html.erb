@@ -2,29 +2,18 @@
 
 <table class="table table-striped">
 	<tr>
+		<th class="small"></th>
 		<th>Name</th>
 		<th>Amount</th>
-		<th></th>
+		<th class="small"></th>
 	</tr>
 
 	<tbody id="items">
 		<% @items.each do |item| %>
-			<tr>
-				<td><%= item.name %></td>
-				<td><%= item.amount %></td>
-				<td><%= link_to 'Show', item, class:"btn" %>
-				<%= link_to 'Edit', edit_item_path(item), class:"btn" %>
-				<%= link_to 'Destroy', item, method: :delete, class:"btn btn-danger" %></td>
-			</tr>
+			<%= render partial:"item_list_row", locals:{item:item} %>
 		<% end %>
 	</tbody>
 </table>
 
 <br />
-<h3 id="heading">New Item</h3>
-<%= simple_form_for @item, remote:true do |f| %>
-	<%= f.input :name %>
-	<%= f.input :amount %>
-	<%= f.submit class:"btn" %>
-<% end %>
-<%= link_to 'New Item', new_item_path %>
+<%= render "form" %>

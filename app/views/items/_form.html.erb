@@ -1,25 +1,6 @@
-<%= form_for(@item) do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
-      <ul>
-      <% @item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :amount %><br />
-    <%= f.text_field :amount %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<h3 id="heading">New Item</h3>
+<%= simple_form_for @item, remote:true do |f| %>
+	<%= f.input :name, input_html:{autofocus:"autofocus"} %>
+	<%= f.input :amount %>
+	<%= f.submit class:"btn" %>
 <% end %>
