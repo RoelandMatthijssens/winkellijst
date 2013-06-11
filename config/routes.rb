@@ -1,12 +1,10 @@
 WinkelLijst::Application.routes.draw do
-	scope(:path => '/winkellijst') do
-		resources :items
-		resources :shopping_items do
-			put :mark, on: :member
-			put :unmark, on: :member
-		end
-		root :to => 'items#index'
+	resources :items
+	resources :shopping_items do
+		put :mark, on: :member
+		put :unmark, on: :member
 	end
+	root :to => 'items#index'
 
 
   # The priority is based upon order of creation:
