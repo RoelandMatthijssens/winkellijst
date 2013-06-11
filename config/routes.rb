@@ -5,6 +5,7 @@ WinkelLijst::Application.routes.draw do
 			put :mark, on: :member
 			put :unmark, on: :member
 		end
+		root :to => 'items#index'
 	end
 
 
