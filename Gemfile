@@ -32,6 +32,10 @@ group :development, :test do
 	gem 'guard-rspec'
 end
 
+group :production do
+	gem 'puma'
+end
+
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'simple_form'
