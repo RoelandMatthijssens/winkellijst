@@ -1,8 +1,10 @@
 WinkelLijst::Application.routes.draw do
-  resources :items
-	resources :shopping_items do
-		put :mark, on: :member
-		put :unmark, on: :member
+	scope(:path => '/winkellijst') do
+		resources :items
+		resources :shopping_items do
+			put :mark, on: :member
+			put :unmark, on: :member
+		end
 	end
 
 
