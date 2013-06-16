@@ -1,11 +1,13 @@
 <h1>Listing items</h1>
 
 <table class="table table-striped">
-	<tr>
-		<th>Name</th>
-		<th>Price</th>
-		<th class="small"></th>
-	</tr>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+			<th class="small"></th>
+		</tr>
+	</thead>
 
 	<tbody id="items">
 		<% @items.each do |item| %>

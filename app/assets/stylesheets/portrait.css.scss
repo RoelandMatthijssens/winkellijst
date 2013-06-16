@@ -1,0 +1,7 @@
+@import "screens";
+@media #{$portrait}{
+	body {
+		background-color:green;
+		width: 100%;
+	}
+}

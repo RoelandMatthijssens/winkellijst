@@ -1,0 +1,7 @@
+@import "screens";
+@media #{$landscape}{
+	body {
+		background-color:red;
+		width: 100%;
+	}
+}

@@ -4,7 +4,7 @@ WinkelLijst::Application.routes.draw do
 		put :mark, on: :member
 		put :unmark, on: :member
 	end
-	root :to => 'items#index'
+	root :to => 'shopping_items#index'
 
 
   # The priority is based upon order of creation:

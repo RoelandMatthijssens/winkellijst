@@ -1,10 +1,10 @@
 <tr id="shopping_item-<%= shopping_item.id %>", class="<%= 'marked' if shopping_item.marked %>">
 	<% if shopping_item.marked %>
-		<td class="small"><%= link_to raw('<i class="icon-remove"></i>'), unmark_shopping_item_path(shopping_item), method: :put, class:"btn btn-large", remote:true %></td>
+		<td class="small"><%= link_to raw('<i class="icon icon-remove"></i>'), unmark_shopping_item_path(shopping_item), method: :put, class:"btn btn-large", remote:true %></td>
 	<% else %>
-		<td class="small"><%= link_to raw('<i class="icon-ok"></i>'), mark_shopping_item_path(shopping_item), method: :put, class:"btn btn-success btn-large", remote:true %></td>
+		<td class="small"><%= link_to raw('<i class="icon icon-ok"></i>'), mark_shopping_item_path(shopping_item), method: :put, class:"btn btn-success btn-large", remote:true %></td>
 	<% end %>
 	<td><%= shopping_item.item.name %></td>
-	<td><%= shopping_item.amount %></td>
-	<td class="small"><%= link_to raw('<i class="icon-edit"></i>'), edit_shopping_item_path(shopping_item), class:"btn btn-mini" %></td>
+	<td class="small"><%= shopping_item.amount %></td>
+	<td class="small"><%= link_to raw('<i class="icon icon-edit"></i>'), edit_shopping_item_path(shopping_item), class:"btn btn-mini" %></td>
 </tr>
