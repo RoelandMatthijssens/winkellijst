@@ -51,6 +51,7 @@ table{
 		width:10%;
 		min-width:4em;
 	}
+	margin-bottom:5em;
 }
 
 
@@ -90,13 +91,16 @@ form div.input{
 	border: 1px solid #ddd;
 	border-radius:3px;
 	display: inline-block;
+	padding:0.5em 1em;
 }
 
 .btn-mini {
 	border-radius: 3px;
+	padding: 2px 4px;
 }
 .btn-large {
 	border-radius: 6px;
+	padding: 6px 10px 6px 10px;
 }
 .btn-success {
 	background-image: -webkit-linear-gradient(top, $success-color, darken($success-color, 15%));
@@ -116,14 +120,20 @@ form div.input{
 .icon{
 	background-position: center center;
 	display: inline-block;
+	width:16px;
+	height:16px;
 }
 .icon-ok{
+	background-image: url("/assets/checkmark16.png");
 }
-
 .icon-remove{
+	background-image: url("/assets/remove.png");
 }
-
 .icon-edit{
+	background-image: url("/assets/edit.png");
+}
+.icon-trash{
+	background-image: url("/assets/trash.png");
 }
 
 //################
