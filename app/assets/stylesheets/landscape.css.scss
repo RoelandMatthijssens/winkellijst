@@ -1,7 +1,37 @@
 @import "screens";
 @media #{$landscape}{
 	body {
-		background-color:red;
 		width: 100%;
+	}
+	table td, table th{
+		padding: 4px;
+	}
+
+	.btn{
+		padding:0.5em 1em;
+		border-radius:6px;
+	}
+	.btn-mini {
+		padding: 2px 4px;
+	}
+	.btn-large{
+		padding: 6px 10px 6px 10px;
+	}
+	.icon{
+		margin-top: 2px;
+		width: 16px;
+		height: 16px;
+	}
+	.icon-ok{
+		background-image: url("/assets/checkmark16.png");
+	}
+	.icon-remove{
+		background-image: url("/assets/remove.png");
+	}
+	.icon-edit{
+		background-image: url("/assets/edit.png");
+	}
+	.icon-trash{
+		background-image: url("/assets/trash.png");
 	}
 }

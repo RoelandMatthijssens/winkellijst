@@ -1,6 +1,5 @@
 <% remote ||= remote.nil? %>
 
-<h3 id="heading">New Item</h3>
 <%= simple_form_for @item, remote:remote do |f| %>
 	<%= f.input :name, input_html:{autofocus:"autofocus", id:"focus"} %>
 	<%= f.input :price %>
