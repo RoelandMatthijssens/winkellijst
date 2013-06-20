@@ -5,10 +5,13 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-	<meta name="viewport" content="user-scalable=no" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes" />
 </head>
 <body>
 
+<div class="navigation_bar">
+	<%= render partial:"layouts/navigation_bar" %>
+</div>
 <div class="container">
 	<%= yield %>
 </div>
