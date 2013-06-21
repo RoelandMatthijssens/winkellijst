@@ -137,5 +137,31 @@ form div.input{
 }
 
 //################
-//#   Helpers    #
+//#   Layouts    #
 //################
+div.columns{
+	width:100%;
+	overflow:hidden;
+	div.column-left{
+		border:1px solig black;
+		width:49%;
+		float:left;
+	}
+	div.column-right{
+		width:49%;
+		float:right;
+	}
+}
+
+.droppable{
+	min-height:10px;
+}
+.droppable-active{
+	background-color:green;
+}
+.droppable-hover{
+	background-color:yellow;
+}
+.draggable{
+	cursor:pointer;
+}

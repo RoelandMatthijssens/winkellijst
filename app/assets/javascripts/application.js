@@ -12,9 +12,27 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require chosen-jquery
 //= require_tree .
 
 $(function(){
 	$('.chosen').chosen();
+	$('.draggable').draggable({
+		appendTo:"body",
+		helper:"clone"
+	});
+	$('.droppable').droppable({
+		activeClass:"droppable-active",
+		hoverClass:"droppable-hover",
+		drop:function(event, ui){
+			var id = ui.draggable.attr('id');
+			$.ajax({
+				type:"PUT",
+				dataType: 'script',
+				url:"/items/"+id+"/drop",
+				success:function(data){console.log("success");}
+			});
+		}
+	});
 });

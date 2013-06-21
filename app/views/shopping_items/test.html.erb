@@ -1,0 +1,16 @@
+<div class="columns">
+	<div class="column-left">
+		<ul id="dropTarget" class="droppable">
+			<% @shopping_items.each do |shopping_item| %>
+				<li id=<%= "shopping_item_#{shopping_item.item.id}" %>><%= shopping_item.item.name %></li>
+			<% end %>
+		</ul>
+	</div>
+	<div class="column-right">
+		<ul>
+			<% @items.each do |item| %>
+				<li id=<%= item.id %> class="draggable"><%= item.name %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>

@@ -74,4 +74,9 @@ class ShoppingItemsController < ApplicationController
 			format.js
 		end
 	end
+
+	def test
+		@shopping_items = ShoppingItem.all
+		@items = Item.all
+	end
 end

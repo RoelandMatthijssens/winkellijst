@@ -83,4 +83,20 @@ class ItemsController < ApplicationController
 			format.js
 		end
 	end
+
+	#PUT /items/1/drop
+	def drop
+		@item = Item.find(params[:id])
+		@shopping_item = @item.shopping_items.first
+		if @shopping_item.nil?
+			@shopping_item = ShoppingItem.new
+			@shopping_item.item = @item
+			@shopping_item.amount = 0
+		end
+		@shopping_item.amount+=1
+		@shopping_item.save!
+		respond_to do |format|
+			format.js
+		end
+	end
 end

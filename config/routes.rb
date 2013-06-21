@@ -1,8 +1,11 @@
 WinkelLijst::Application.routes.draw do
-	resources :items
+	resources :items do
+		put :drop, on: :member
+	end
 	resources :shopping_items do
 		put :mark, on: :member
 		put :unmark, on: :member
+		get :test, on: :collection
 	end
 	root :to => 'shopping_items#index'
 
