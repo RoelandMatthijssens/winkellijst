@@ -1,0 +1,11 @@
+var dropTarget = $("#<%= @shopping_list.id %>");
+var newItem = $("<div id=shopping_item_<%= @item.id %>><%= @amount %>x <%= @item.name %></div>")
+var active = $('.accordion').accordion('option', 'active');
+var old = dropTarget.find("#shopping_item_<%= @item.id%>");
+if (old.length == 0){
+	newItem.appendTo(dropTarget);
+} else {
+	newItem.insertBefore(old);
+	old.remove();
+}
+$(".accordion").accordion("destroy").accordion({ active: active });

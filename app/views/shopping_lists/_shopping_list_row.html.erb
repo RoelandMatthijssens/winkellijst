@@ -1,0 +1,7 @@
+<tr>
+	<td><%= shopping_list.date %></td>
+	<td class="small">
+		<%= link_to raw('<i class="icon icon-edit"></i>'), edit_shopping_list_path(shopping_list), class:"btn btn-mini" %>
+		<%= link_to raw('<i class="icon icon-trash"></i>'), shopping_list, method: :delete, class:"btn btn-danger btn-mini" %>
+	</td>
+</tr>

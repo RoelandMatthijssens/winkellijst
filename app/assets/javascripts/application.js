@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require jquery.ui.touch-punch.min
+//= require jquery.contextMenu
 //= require chosen-jquery
 //= require_tree .
 
@@ -27,13 +28,39 @@ $(function(){
 		activeClass:"droppable-active",
 		hoverClass:"droppable-hover",
 		drop:function(event, ui){
-			var id = ui.draggable.attr('id');
+			var list_id = $(this).attr('id');
+			var item_id = ui.draggable.attr('id').substr(5);
 			$.ajax({
 				type:"PUT",
 				dataType: 'script',
-				url:"/items/"+id+"/drop",
-				success:function(data){console.log("success");}
+				url:"/shopping_lists/"+list_id+"/drop",
+				success:function(data){console.log("success");},
+				data: "item_id="+item_id
 			});
+		}
+	});
+	$(".accordion").accordion();
+	$.contextMenu({
+		selector: ".contextMenu",
+		items: {
+			"lock":{name:"", icon:"lock"},
+			"unlock":{name:"", icon:"unlock"}
+		},
+		callback:function(key, options){
+			var id = $(this).attr('id').substr(16);
+			if (key == "lock"){
+				$.ajax({
+					type:"PUT",
+					dataType:"script",
+					url:"/shopping_lists/"+id+"/lock"
+				});
+			} else {
+				$.ajax({
+					type:"PUT",
+					dataType:"script",
+					url:"/shopping_lists/"+id+"/unlock"
+				});
+			}
 		}
 	});
 });

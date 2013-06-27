@@ -1,0 +1,11 @@
+<h3 class="contextMenu" id="shopping_list_h_<%= shopping_list.id %>">
+	<%= shopping_list.date %>
+	<% if shopping_list.lock %>
+		<i class="icon icon-lock pull-right"></i>
+	<% end %>
+</h3>
+<div id="<%= shopping_list.id %>" class="accordion-content <%= shopping_list.lock ? "inactive" : "droppable" %>">
+	<% shopping_list.shopping_items.each do |shopping_item| %>
+		<div id=shopping_item_<%= shopping_item.item.id %>><%= shopping_item.amount %>x <%= shopping_item.item.name %></div>
+	<% end %>
+</div>

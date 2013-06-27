@@ -1,6 +1,10 @@
 WinkelLijst::Application.routes.draw do
-	resources :items do
+	resources :shopping_lists do
 		put :drop, on: :member
+		put :lock, on: :member
+		put :unlock, on: :member
+	end
+	resources :items do
 	end
 	resources :shopping_items do
 		put :mark, on: :member

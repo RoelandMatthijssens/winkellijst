@@ -1,0 +1,40 @@
+/*!
+ * jQuery contextMenu - Plugin for simple contextMenu handling
+ *
+ * Version: 1.6.5
+ *
+ * Authors: Rodney Rehm, Addy Osmani (patches for FF)
+ * Web: http://medialize.github.com/jQuery-contextMenu/
+ *
+ * Licensed under
+ *	 MIT License http://www.opensource.org/licenses/mit-license
+ *	 GPL v3 http://opensource.org/licenses/GPL-3.0
+ *
+ */
+
+.context-menu-list {
+	display: inline-block;
+	position: absolute;
+	list-style-type: none;
+}
+
+.context-menu-item {
+	.icon{
+		display:block;
+	}
+	padding: 2px 2px 2px 24px;
+	display:block;
+	position: relative;
+}
+
+.context-menu-separator {
+	padding-bottom:0;
+	border-bottom: 1px solid #DDD;
+}
+
+.context-menu-item.hover {
+	cursor: pointer;
+	background-color:red;
+
+}
+.context-menu-item.icon { min-height: 18px; background-repeat: no-repeat; background-position: center center; }

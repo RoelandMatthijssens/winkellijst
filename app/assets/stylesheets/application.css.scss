@@ -12,6 +12,8 @@
  *= require jquery.ui.all
  *= require_self
  */
+@import "jquery-overrides";
+@import "jquery.contextMenu";
 @import "default";
 @import "landscape";
 @import "portrait";
