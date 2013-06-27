@@ -88,6 +88,7 @@ class ShoppingListsController < ApplicationController
 	def drop
 		@shopping_list = ShoppingList.find(params[:id])
 		@item = Item.find(params[:item_id])
+		@draggable = params[:draggable]
 		shopping_item = ShoppingItem.where("item_id = #{@item.id} and shopping_list_id = #{@shopping_list.id}").first
 		if shopping_item.nil?
 			shopping_item = ShoppingItem.new

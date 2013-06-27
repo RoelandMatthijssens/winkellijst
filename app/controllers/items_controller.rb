@@ -42,6 +42,7 @@ class ItemsController < ApplicationController
 	# POST /items.json
 	def create
 		@item = Item.new(params[:item])
+		@draggable = params[:draggable]
 
 		respond_to do |format|
 			if @item.save

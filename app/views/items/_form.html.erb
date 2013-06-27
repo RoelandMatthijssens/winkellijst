@@ -1,6 +1,8 @@
 <% remote ||= remote.nil? %>
+<% draggable ||= not(draggable.nil?) %>
 
 <%= simple_form_for @item, remote:remote do |f| %>
+	<%= hidden_field_tag :draggable, draggable %>
 	<%= f.input :name, input_html:{autofocus:"autofocus", id:"focus"} %>
 	<%= f.input :price %>
 	<%= f.submit class:"btn" %>

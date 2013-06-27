@@ -1,3 +1,7 @@
-$('#items').append('<%= j render :partial => 'items/item_list_row', :locals => {item: @item} %>');
+$('#items').append('<%= j render :partial => 'items/item_list_row', :locals => {item: @item, draggable: @draggable} %>');
+$('.draggable').draggable({
+	appendTo:"body",
+	helper:"clone"
+});
 $("input.string, input.float").val("");
 $("#focus").focus();
