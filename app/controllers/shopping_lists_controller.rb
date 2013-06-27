@@ -4,6 +4,7 @@ class ShoppingListsController < ApplicationController
 	def index
 		@shopping_lists = ShoppingList.order("date ASC").all;
 		@items = Item.all
+		@item = Item.new
 		@shopping_list = ShoppingList.new
 
 		respond_to do |format|

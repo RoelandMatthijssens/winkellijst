@@ -1,21 +1,28 @@
 <div class="columns">
 	
-	<div class="accordion column-left">
-		<% @shopping_lists.each do |shopping_list| %>
-			<%= render partial: "shopping_list_accordion", locals:{shopping_list:shopping_list} %>
-		<% end %>
+	<div class="column-left">
+		<h3>Shopping lists</h3>
+		<div class="accordion">
+			<% @shopping_lists.each do |shopping_list| %>
+				<%= render partial: "shopping_list_accordion", locals:{shopping_list:shopping_list} %>
+			<% end %>
+		</div>
+		<br/>
 	</div>
 
 	<div class="column-right">
-		<ul>
-			<% @items.each do |item| %>
-				<li id="item_<%= item.id %>" class="draggable"><%= item.name %></li>
-			<% end %>
-		</ul>
+		<h3>Items</h3>
+		<%= render partial: "items_table" %>
+		<br/>
 	</div>
-
 </div>
-
-<br />
-<h3>New Shopping List</h3>
-<%= render partial:"form" %>
+<div class="columns">
+	<div class="column-left">
+		<h3>New Shopping List</h3>
+		<%= render partial:"form" %>
+	</div>
+	<div class="column-right">
+		<h3>New Item</h3>
+		<%= render partial:"items/form" %>
+	</div>
+</div>

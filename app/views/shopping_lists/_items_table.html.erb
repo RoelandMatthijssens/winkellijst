@@ -1,0 +1,12 @@
+<table>
+	<thead>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="small">Actions</th>
+	</thead>
+	<tbody id="items">
+		<% @items.each do |item| %>
+			<%= render partial:"item_tablerow", locals:{item:item} %>
+		<% end %>
+	</tbody>
+</table>
