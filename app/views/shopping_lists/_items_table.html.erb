@@ -1,8 +1,8 @@
 <table>
 	<thead>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="small">Actions</th>
+		<th><%= link_to "Name", sort: "name" %></th>
+		<th><%= link_to "Type", sort: "type" %></th>
+		<th class="small"></th>
 	</thead>
 	<tbody id="items">
 		<% @items.each do |item| %>
@@ -10,3 +10,4 @@
 		<% end %>
 	</tbody>
 </table>
+<%= will_paginate @items %>

@@ -19,6 +19,19 @@
 //= require_tree .
 
 $(function(){
+	$(document).on("click", "#item_table thead th a, #item_table .pagination a", function(){
+		$.getScript(this.href);
+		return false;
+	});
+	$('#item_search input').keyup(function () {
+		$.ajax({
+			url:$('#item_search').attr('action'),
+			data:$('#item_search').serialize(),
+			success:null,
+			dataType:'script'
+		});
+		return false;
+	});
 	$('.chosen').chosen();
 	$('.draggable').draggable({
 		appendTo:"body",

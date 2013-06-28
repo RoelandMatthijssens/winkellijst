@@ -36,6 +36,7 @@ group :production do
 	gem 'puma'
 end
 
+gem 'will_paginate'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'simple_form'

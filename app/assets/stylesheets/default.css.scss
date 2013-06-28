@@ -45,6 +45,20 @@ table{
 	border-spacing: 0px;
 	width:100%;
 	td, th{
+		a{
+			text-decoration:none;
+			padding-left:16px;
+			&.current{
+				background-repeat: no-repeat;
+				background-position:left center;
+				&.asc{
+					background-image:url(/assets/arrowup.png)
+				}
+				&.desc{
+					background-image:url(/assets/arrowdown.png)
+				}
+			}
+		}
 		vertical-align:middle;
 		text-align:left;
 		border-top: 1px solid darken($grayed, 10%);
@@ -63,6 +77,10 @@ table{
 form input.btn{
 	margin-left:5.5em;
 }
+form input.btn.inline{
+	margin-left:0;
+	width:100%;
+}
 form div.input{
 	label{
 		width:4em;
@@ -79,6 +97,9 @@ form div.input{
 			outline:0;
 			outline-offset:0;
 		}
+	}
+	.small{
+		width:100%;
 	}
 }
 

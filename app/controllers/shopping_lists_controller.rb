@@ -3,7 +3,7 @@ class ShoppingListsController < ApplicationController
 	# GET /shopping_lists.json
 	def index
 		@shopping_lists = ShoppingList.order("date ASC").all;
-		@items = Item.all
+		@items = Item.paginate(per_page:10, page:params[:page])
 		@item = Item.new
 		@shopping_list = ShoppingList.new
 

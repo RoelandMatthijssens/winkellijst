@@ -1,18 +1,4 @@
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Price</th>
-			<th class="small"></th>
-		</tr>
-	</thead>
-
-	<tbody id="items">
-		<% @items.each do |item| %>
-			<%= render partial:"item_list_row", locals:{item:item} %>
-		<% end %>
-	</tbody>
-</table>
+<%= render partial: "search_form" %>
 
 <br />
 <h3 id="heading">New Item</h3>

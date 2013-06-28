@@ -1,4 +1,4 @@
-<% draggable = draggable.nil? || draggable ? "draggable" : "" %>
+<% draggable ||= not(draggable.nil?) %>
 <tr id="item-<%= item.id %>">
 	<td id="item_<%= item.id %>" class="<%= draggable %>"><%= item.name %></td>
 	<td><%= item.price %></td>
