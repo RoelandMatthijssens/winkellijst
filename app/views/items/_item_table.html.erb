@@ -11,8 +11,8 @@
 
 	<tbody id="items">
 		<% @items.each do |item| %>
-			<%= render partial:"item_list_row", locals:{item:item} %>
+			<%= render partial:"items/item_list_row", locals:{item:item} %>
 		<% end %>
 	</tbody>
 </table>
-<%= will_paginate @items %>
+<%= will_paginate @items, params:{controller:"items"} %>

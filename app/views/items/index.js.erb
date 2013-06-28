@@ -1,1 +1,5 @@
 $('#item_table').html('<%= escape_javascript(render partial:"item_table") %>');
+$('.draggable').draggable({
+	appendTo:"body",
+	helper:"clone"
+});

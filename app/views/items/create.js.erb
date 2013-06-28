@@ -1,4 +1,4 @@
-$('#items').append('<%= j render :partial => 'items/item_list_row', :locals => {item: @item, draggable: @draggable} %>');
+$('#items').append('<%= j render :partial => 'items/item_list_row', :locals => {item: @item} %>');
 $('.draggable').draggable({
 	appendTo:"body",
 	helper:"clone"

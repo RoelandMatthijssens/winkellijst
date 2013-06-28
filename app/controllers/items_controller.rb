@@ -5,6 +5,8 @@ class ItemsController < ApplicationController
 	def index
 		@items = Item.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(per_page:10, page:params[:page])
 		@item = Item.new
+		@draggable = params[:draggable]
+		@draggable = not(@draggable.nil?) && @draggable
 
 		respond_to do |format|
 			format.html # index.html.erb
