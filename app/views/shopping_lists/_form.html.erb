@@ -1,4 +1,5 @@
-<%= form_for(@shopping_list) do |f| %>
+<% remote||=remote.nil? %>
+<%= form_for(@shopping_list, remote:remote) do |f| %>
 		<div class="input date optional">
 			<label class="date optional" for="focus">Date</label>
 			<input class="date optional" type="date" name="shopping_list[date]" value="<%= Date.today.strftime %>">

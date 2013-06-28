@@ -50,6 +50,7 @@ class ShoppingListsController < ApplicationController
 			if @shopping_list.save
 				format.html { redirect_to shopping_lists_path, notice: 'Shopping list was successfully created.' }
 				format.json { render json: @shopping_list, status: :created, location: @shopping_list }
+				format.js
 			else
 				format.html { render action: "new" }
 				format.json { render json: @shopping_list.errors, status: :unprocessable_entity }
@@ -77,11 +78,13 @@ class ShoppingListsController < ApplicationController
 	# DELETE /shopping_lists/1.json
 	def destroy
 		@shopping_list = ShoppingList.find(params[:id])
-		@shopping_list.destroy
+		@shopping_list.removed = true
+		@shopping_list.save!
 
 		respond_to do |format|
 			format.html { redirect_to shopping_lists_url }
 			format.json { head :no_content }
+			format.js
 		end
 	end
 

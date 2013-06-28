@@ -3,6 +3,7 @@ class CreateShoppingLists < ActiveRecord::Migration
 		create_table :shopping_lists do |t|
 			t.date :date
 			t.boolean :lock, default: false
+			t.boolean :removed, default: false
 
 			t.timestamps
 		end

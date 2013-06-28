@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130621092828) do
   create_table "shopping_lists", :force => true do |t|
     t.date     "date"
     t.boolean  "lock",       :default => false
+    t.boolean  "removed",    :default => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end

@@ -8,4 +8,7 @@ if (old.length == 0){
 	newItem.insertBefore(old);
 	old.remove();
 }
-$(".accordion").accordion("destroy").accordion({ active: active });
+$(".accordion").accordion("destroy").accordion({
+	active: active,
+	event: "click hoverintent"
+});

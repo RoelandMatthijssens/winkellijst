@@ -1,0 +1,6 @@
+var active = $('.accordion').accordion('option', 'active');
+$('#shopping_lists').append('<%= j render :partial => 'shopping_list_accordion', locals:{shopping_list: @shopping_list} %>');
+$(".accordion").accordion("destroy").accordion({
+	active: active,
+	event: "click hoverintent"
+});
