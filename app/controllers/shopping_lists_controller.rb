@@ -14,6 +14,14 @@ class ShoppingListsController < ApplicationController
 		end
 	end
 
+	# GET /shopping_lists/current
+	def current
+		@shopping_list = ShoppingList.order("date ASC").first;
+		respond_to do |format|
+			format.html
+		end
+	end
+
 	# GET /shopping_lists/1
 	# GET /shopping_lists/1.json
 	def show

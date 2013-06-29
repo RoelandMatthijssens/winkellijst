@@ -1,0 +1,22 @@
+<% if @shopping_list.nil? %>
+	currently no shopping list. <%= link_to "create a new list", shopping_lists_path %>.
+<% else %>
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="small"></th>
+				<th>Name</th>
+				<th>Amount</th>
+				<th class="small"></th>
+			</tr>
+		</thead>
+		<tbody id="shopping_items">
+	
+			<% @shopping_list.shopping_items.each do |shopping_item| %>
+				<%= render partial:"shopping_item_list_row", locals:{shopping_item:shopping_item} %>
+			<% end %>
+		</tbody>
+	</table>
+	
+	<hr/>
+<% end %>

@@ -3,6 +3,7 @@ WinkelLijst::Application.routes.draw do
 		put :drop, on: :member
 		put :lock, on: :member
 		put :unlock, on: :member
+		get :current, on: :collection
 	end
 	resources :items do
 	end
@@ -11,7 +12,7 @@ WinkelLijst::Application.routes.draw do
 		put :unmark, on: :member
 		get :test, on: :collection
 	end
-	root :to => 'shopping_items#index'
+	root :to => 'shopping_lists#current'
 
 
   # The priority is based upon order of creation:
