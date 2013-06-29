@@ -1,5 +1,5 @@
 class AddShoppingListReferenceToShoppingItems < ActiveRecord::Migration
   def change
-    add_column :shopping_items, :shopping_list, :reference
+    add_column :shopping_items, :shopping_list, :references
   end
 end
