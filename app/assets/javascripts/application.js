@@ -18,6 +18,23 @@
 //= require chosen-jquery
 //= require_tree .
 
+function makeDroppable(selector){
+	$(selector).droppable({
+		activeClass:"droppable-active",
+		hoverClass:"droppable-hover",
+		drop:function(event, ui){
+			var list_id = $(this).attr('id');
+			var item_id = ui.draggable.attr('id').substr(5);
+			$.ajax({
+				type:"PUT",
+				dataType: 'script',
+				url:"/shopping_lists/"+list_id+"/drop",
+				success:function(data){console.log("success");},
+				data: "item_id="+item_id
+			});
+		}
+	});
+}
 $(function(){
 	$(document).on("click", "#item_table thead th a, #item_table .pagination a", function(){
 		$.getScript(this.href);
@@ -37,21 +54,7 @@ $(function(){
 		appendTo:"body",
 		helper:"clone"
 	});
-	$('.droppable').droppable({
-		activeClass:"droppable-active",
-		hoverClass:"droppable-hover",
-		drop:function(event, ui){
-			var list_id = $(this).attr('id');
-			var item_id = ui.draggable.attr('id').substr(5);
-			$.ajax({
-				type:"PUT",
-				dataType: 'script',
-				url:"/shopping_lists/"+list_id+"/drop",
-				success:function(data){console.log("success");},
-				data: "item_id="+item_id
-			});
-		}
-	});
+	makeDroppable(".droppable");
 	$.contextMenu({
 		selector: ".contextMenu",
 		items: {
