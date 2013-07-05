@@ -17,6 +17,7 @@ class ShoppingListsController < ApplicationController
 	# GET /shopping_lists/current
 	def current
 		@shopping_list = ShoppingList.order("date ASC").first;
+		@shopping_items = @shopping_list.shopping_items.unmarked + @shopping_list.shopping_items.marked
 		respond_to do |format|
 			format.html
 		end
