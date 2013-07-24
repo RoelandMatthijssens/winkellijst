@@ -1,7 +1,7 @@
 <% remote||=remote.nil? %>
 
 <%= simple_form_for @shopping_item, remote:remote do |f| %>
-	<%= f.input :item, collection: Item.all,  input_html:{autofocus:"autofocus", class:"chosen" } %>
+	<%= f.input :item, collection: Item.all,  input_html:{class:"chosen" } %>
 	<%= f.input :amount %>
 	<%= f.submit class:"btn" %>
 <% end %>
