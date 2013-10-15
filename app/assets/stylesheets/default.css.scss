@@ -22,15 +22,14 @@ body {
 	}
 	li{
 		&:hover a{color:darken($text-color, 30%);}
-		border-radius:6px;
-		padding:0.5em;
-		cursor:pointer;
 		display:inline;
+		margin-left:0.5em;
 		a{
+			cursor:pointer;
 			text-decoration:none;
 		}
 	}
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 }
 
 
@@ -200,6 +199,11 @@ div.columns{
 .pull-right{
 	float:right;
 }
+
+.pull-left{
+	float:left;
+}
+
 .inactive{
 	background-color:darken($grayed, 15%);
 }

@@ -1,6 +1,6 @@
 <ul>
-	<li><%= link_to "View", current_shopping_lists_path%></li>
-	<li><%= link_to "Manage", shopping_lists_path %></li>
+	<li class="pull-left"><%= link_to "View", current_shopping_lists_path%></li>
+	<li class="pull-left"><%= link_to "Manage", shopping_lists_path %></li>
 	<% if user_signed_in? %>
 		<li class="pull-right">
 			<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
