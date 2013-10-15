@@ -1,4 +1,6 @@
 WinkelLijst::Application.routes.draw do
+  devise_for :users
+
 	resources :shopping_lists do
 		put :drop, on: :member
 		put :lock, on: :member

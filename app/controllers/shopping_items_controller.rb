@@ -1,4 +1,6 @@
 class ShoppingItemsController < ApplicationController
+	before_filter :authenticate_user!
+
 	def index
 		@shopping_items = ShoppingItem.unmarked + ShoppingItem.marked
 		@shopping_item  = ShoppingItem.new
