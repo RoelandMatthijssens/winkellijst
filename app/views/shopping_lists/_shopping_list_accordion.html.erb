@@ -1,8 +1,9 @@
-<h3 class="contextMenu" id="shopping_list_h_<%= shopping_list.id %>">
+<h3 id="shopping_list_h_<%= shopping_list.id %>">
 	<%= shopping_list.date %>
 	<% if shopping_list.lock %>
 		<i class="icon icon-lock pull-right"></i>
 	<% end %>
+	<%= link_to raw('<i class="icon icon-trash"></i>'), shopping_list, method: :delete, class:"pull-right", remote:true %>
 </h3>
 <div id="<%= shopping_list.id %>" class="accordion-content <%= shopping_list.lock ? "inactive" : "droppable" %>">
 	<% shopping_list.shopping_items.each do |shopping_item| %>
