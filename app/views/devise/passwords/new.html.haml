@@ -1,0 +1,10 @@
+.devise-form
+	%h2 Forgot your password?
+	=simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+		=f.error_notification
+		.form-inputs
+			=f.input :email, :required => true, :autofocus => true
+		.form-actions
+			.buttons
+				=f.submit "Send", :class => "btn-large btn-success"
+				=render "devise/shared/links"

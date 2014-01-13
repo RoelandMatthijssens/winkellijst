@@ -1,5 +1,5 @@
-.login
-	%h1 Sign in
+.devise-form
+	%h2 Sign in
 	=simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
 		.form-inputs
 			=f.input :username, :required => false, :type => "text", :autofocus => true
