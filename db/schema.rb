@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131015112315) do
+ActiveRecord::Schema.define(:version => 20140113221545) do
+
+  create_table "households", :force => true do |t|
+    t.string   "name"
+    t.boolean  "password_protected"
+    t.string   "password"
+    t.string   "city"
+    t.string   "postal_code"
+    t.string   "street"
+    t.integer  "housenumber"
+    t.string   "housenumber_addition"
+    t.string   "phonenumber"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  create_table "households_users", :force => true do |t|
+    t.integer "household_id"
+    t.integer "user_id"
+  end
 
   create_table "items", :force => true do |t|
     t.string   "name"
@@ -31,10 +50,11 @@ ActiveRecord::Schema.define(:version => 20131015112315) do
 
   create_table "shopping_lists", :force => true do |t|
     t.date     "date"
-    t.boolean  "lock",       :default => false
-    t.boolean  "removed",    :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.boolean  "lock",         :default => false
+    t.boolean  "removed",      :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "household_id"
   end
 
   create_table "users", :force => true do |t|

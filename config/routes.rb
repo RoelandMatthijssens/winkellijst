@@ -1,4 +1,7 @@
 WinkelLijst::Application.routes.draw do
+  resources :households
+
+
   devise_for :users
 
 	resources :shopping_lists do

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @household.name %>
+</p>
+
+<p>
+  <b>Password protected:</b>
+  <%= @household.password_protected %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @household.password %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @household.city %>
+</p>
+
+<p>
+  <b>Postal code:</b>
+  <%= @household.postal_code %>
+</p>
+
+<p>
+  <b>House number:</b>
+  <%= @household.housenumber %>
+</p>
+
+<p>
+  <b>Housenumber addition:</b>
+  <%= @household.housenumber_addition %>
+</p>
+
+<p>
+  <b>Phonenumber:</b>
+  <%= @household.phonenumber %>
+</p>
+
+
+<%= link_to 'Edit', edit_household_path(@household) %> |
+<%= link_to 'Back', households_path %>

@@ -1,0 +1,22 @@
+=simple_form_for @household do |f|
+	-if @household.errors.any?
+		.error_explanation
+			%h2
+				=pluralize @household.errors.count, "error"
+				prohibted this household from being saved
+			%ul
+				=@household.errors.full_messages.each do |m|
+					%li
+						=m
+
+	.field
+		=f.input :name
+		=f.input :password_protected, :as => :boolean
+		=f.input :password
+		=f.input :city
+		=f.input :postal_code
+		=f.input :street
+		=f.input :housenumber
+		=f.input :housenumber_addition
+		=f.input :phonenumber
+		=f.submit class:"btn"

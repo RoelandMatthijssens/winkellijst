@@ -1,0 +1,37 @@
+<h1>Listing households</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Password protected</th>
+    <th>Password</th>
+    <th>City</th>
+    <th>Postal code</th>
+    <th>House number</th>
+    <th>Housenumber addition</th>
+    <th>Phonenumber</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @households.each do |household| %>
+  <tr>
+    <td><%= household.name %></td>
+    <td><%= household.password_protected %></td>
+    <td><%= household.password %></td>
+    <td><%= household.city %></td>
+    <td><%= household.postal_code %></td>
+    <td><%= household.housenumber %></td>
+    <td><%= household.housenumber_addition %></td>
+    <td><%= household.phonenumber %></td>
+    <td><%= link_to 'Show', household %></td>
+    <td><%= link_to 'Edit', edit_household_path(household) %></td>
+    <td><%= link_to 'Destroy', household, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Household', new_household_path %>
