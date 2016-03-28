@@ -41,4 +41,18 @@ class User < ActiveRecord::Base
       raise CustomErrors::PermissionError
     end
   end
+
+  def add_item_to_list(item, shopping_list, amount=1)
+    if can_add_to_list?(shopping_list)
+      ShoppingListItem.add_to_shopping_list_item(shopping_list, item, amount, self)
+    else
+      raise CustomErrors::PermissionError
+    end
+  end
+
+  private
+  def can_add_to_list?(list)
+    household = list.household
+    list.creator == self || (!household.nil? && household.members.member?(self))
+  end
 end

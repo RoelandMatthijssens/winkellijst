@@ -44,4 +44,18 @@ RSpec.describe Household, type: :model do
       Household.create!(name: "sint-truiden", creator: @enermis)
     }.to raise_error ActiveRecord::RecordInvalid
   end
+
+  describe 'a user' do
+    it 'should be a member of any household it creates' do
+      sint_truiden = @enermis.create_household(name: 'sint-truiden')
+      expect(sint_truiden.members).to include(@enermis)
+    end
+
+    it 'should only be able to create a household with a specific name once' do
+      @enermis.create_household(name: 'sint-truiden')
+      expect{
+        @enermis.create_household(name: 'sint-truiden')
+      }.to raise_error CustomErrors::UniqueRecordError
+    end
+  end
 end
