@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe ShoppingListItem, type: :model do
   before(:each) do
-    @enermis = User.create!(email: "Enermis@fulgens.com", password: "somePass")
-    @fulgens = User.create!(email: "Fulgens@fulgens.com", password: "somePass")
-    @banana = Item.create(name: "banana")
-    @milk = Item.create!(name: "milk")
+    @enermis = User.create!(email: 'Enermis@fulgens.com', password: 'somePass')
+    @fulgens = User.create!(email: 'Fulgens@fulgens.com', password: 'somePass')
+    @banana = Item.create(name: 'banana')
+    @milk = Item.create!(name: 'milk')
     @shopping_list = ShoppingList.create!(creator: @enermis)
     @household = Household.create!(name: 'sint-truiden', creator: @enermis)
   end
-  it "should have an item" do
+  it 'should have an item' do
     shopping_list_item = ShoppingListItem.create!(minimum_params)
     expect(shopping_list_item.reload.item).to eq(@banana)
   end
@@ -20,7 +20,7 @@ RSpec.describe ShoppingListItem, type: :model do
     }.to raise_error ActiveRecord::RecordInvalid
   end
 
-  it "should have a shopping list" do
+  it 'should have a shopping list' do
     shopping_list_item = ShoppingListItem.create!(minimum_params)
     expect(shopping_list_item.reload.shopping_list).to eq(@shopping_list)
   end
@@ -31,12 +31,12 @@ RSpec.describe ShoppingListItem, type: :model do
     }.to raise_error ActiveRecord::RecordInvalid
   end
 
-  it "should have an amount" do
+  it 'should have an amount' do
     shopping_list_item = ShoppingListItem.create!(minimum_params)
     expect(shopping_list_item.reload.amount).to eq(1)
   end
 
-  it "should keep track of who added the item" do
+  it 'should keep track of who added the item' do
     shopping_list_item = ShoppingListItem.create!(minimum_params)
     expect(shopping_list_item.reload.added_by).to eq(@enermis)
   end
@@ -69,7 +69,7 @@ RSpec.describe ShoppingListItem, type: :model do
       }.to raise_error CustomErrors::PermissionError
       expect(list_contains_item(shopping_list, @banana)).to be_falsey
     end
-    describe "adding items to a list" do
+    describe 'adding items to a list' do
       it 'should keep track of which user added the item to the list' do
         @enermis.add_item_to_list(@banana, @shopping_list)
         expect(@shopping_list.reload.shopping_list_items.first.added_by).to eq(@enermis)
@@ -92,6 +92,9 @@ RSpec.describe ShoppingListItem, type: :model do
         @enermis.add_item_to_list(@banana, @shopping_list)
         expect(@shopping_list.reload.shopping_list_items.first.amount).to eq(2)
       end
+    end
+    describe 'removing items from a list' do
+      
     end
   end
 
