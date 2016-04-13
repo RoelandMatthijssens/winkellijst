@@ -50,6 +50,19 @@ class User < ActiveRecord::Base
     end
   end
 
+  def remove_item_from_list(item, shopping_list, amount:1)
+    if can_add_to_list?(shopping_list)
+      shopping_list.shopping_list_items.map do |shopping_list_item|
+        if shopping_list_item.item == item
+          shopping_list_item.amount-=amount
+          shopping_list_item.save!
+        end
+      end
+    else
+      raise CustomErrors::PermissionError
+    end
+  end
+
   private
   def can_add_to_list?(list)
     household = list.household

@@ -6,6 +6,8 @@ class ShoppingListItem < ActiveRecord::Base
   validates :item, presence: true
   validates :shopping_list, presence: true
 
+  before_update :destroy_if_amount_is_invalid
+
   def self.add_to_shopping_list_item(shopping_list, item, amount, user)
     shopping_list_item = self.get_shopping_list_item(shopping_list, item)
     shopping_list_item.amount += amount
@@ -20,5 +22,10 @@ class ShoppingListItem < ActiveRecord::Base
       shopping_list_items << self.create!(item: item, shopping_list: shopping_list, amount:0)
     end
     return shopping_list_items.first
+  end
+
+  private
+  def destroy_if_amount_is_invalid
+    self.destroy! if amount <= 0
   end
 end
