@@ -63,6 +63,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  def mark_item_as_bought(shopping_list_item)
+    if can_add_to_list?(shopping_list_item.shopping_list)
+      shopping_list_item.bought=true
+      shopping_list_item.save!
+    else
+      raise CustomErrors::PermissionError
+    end
+  end
+
   private
   def can_add_to_list?(list)
     household = list.household

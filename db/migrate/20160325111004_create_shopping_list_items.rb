@@ -5,6 +5,7 @@ class CreateShoppingListItems < ActiveRecord::Migration
       t.integer :shopping_list_id
       t.integer :added_by_id
       t.integer :amount
+      t.boolean :bought, default: false, null: false
 
       t.timestamps null: false
     end

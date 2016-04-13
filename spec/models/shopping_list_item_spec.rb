@@ -57,6 +57,18 @@ RSpec.describe ShoppingListItem, type: :model do
     }.to change(ShoppingListItem, :count).by(-1)
   end
 
+  it 'should be able to be marked as bought' do
+    shopping_list_item = ShoppingListItem.create!(minimum_params)
+    shopping_list_item.bought = true
+    shopping_list_item.save!
+    expect(shopping_list_item.bought).to be_truthy
+  end
+
+  it 'should by default be marked as not bought' do
+    shopping_list_item = ShoppingListItem.create!(minimum_params)
+    expect(shopping_list_item.bought).to be_falsey
+  end
+
   describe 'a user' do
     describe 'adding items to a list' do
       describe 'permissions' do
@@ -156,6 +168,41 @@ RSpec.describe ShoppingListItem, type: :model do
             @fulgens.remove_item_from_list(@banana, @shopping_list)
           }.to raise_error CustomErrors::PermissionError
           expect(@shopping_list_item.reload.amount).to eq(5)
+        end
+      end
+      end
+    describe 'marking items as bought' do
+      describe 'permissions' do
+        it 'should be able to mark items as bought in his own shopping_lists' do
+          @shopping_list.creator = @enermis
+          shopping_list_item = ShoppingListItem.create!(minimum_params)
+          @enermis.mark_item_as_bought(shopping_list_item)
+          expect(shopping_list_item.reload.bought).to be_truthy
+        end
+        it 'should be able to mark items as bought in a shopping list of a household he is a member of' do
+          @shopping_list.household = @household
+          @household.members << @fulgens
+          shopping_list_item = ShoppingListItem.create!(minimum_params)
+          @fulgens.mark_item_as_bought(shopping_list_item)
+          expect(shopping_list_item.reload.bought).to be_truthy
+        end
+        it 'should not be able to mark shopping_list_items as bought in shopping_lists he is not the creator of' do
+          @shopping_list.household=nil
+          @shopping_list.creator=@enermis
+          shopping_list_item = ShoppingListItem.create!(minimum_params)
+          expect{
+            @fulgens.mark_item_as_bought(shopping_list_item)
+          }.to raise_error CustomErrors::PermissionError
+          expect(shopping_list_item.reload.bought).to be_falsey
+        end
+        it 'should not be able to mark shopping_lists_items as bought in shopping_lists for which he is not a member of the household' do
+          @shopping_list.household=@household
+          @household.members.delete(@fulgens)
+          shopping_list_item = ShoppingListItem.create!(minimum_params)
+          expect{
+            @fulgens.mark_item_as_bought(shopping_list_item)
+          }.to raise_error CustomErrors::PermissionError
+          expect(shopping_list_item.reload.bought).to be_falsey
         end
       end
     end

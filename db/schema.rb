@@ -56,8 +56,9 @@ ActiveRecord::Schema.define(version: 20160325135214) do
     t.integer  "shopping_list_id"
     t.integer  "added_by_id"
     t.integer  "amount"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.boolean  "bought",           default: false, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "shopping_lists", force: :cascade do |t|
