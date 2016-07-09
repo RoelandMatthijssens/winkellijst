@@ -10,7 +10,7 @@ var ShoppingListsContainer = React.createClass({
         }
     },
     render: function () {
-        return <div>
+        return <div className="shopping_list_container">
             {
                 this.state.shopping_lists.map(function (shopping_list) {
                     return <ShoppingList key={shopping_list.id} shopping_list={shopping_list}/>

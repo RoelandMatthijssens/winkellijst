@@ -1,3 +1,22 @@
 // Place all the styles related to the shopping_list controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.shopping_list_container {
+}
+
+.shopping_list {
+  table {
+    text-align: left;
+    width: 100%;
+  }
+  border: solid black 1px;
+  margin: 5px;
+}
+
+.shopping_list_item {
+  width: 100%;
+}
+
+.item {
+}

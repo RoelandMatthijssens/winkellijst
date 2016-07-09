@@ -5,9 +5,9 @@ var ShoppingList = React.createClass({
             shopping_list_items: this.props.shopping_list_items,
         }
     },
-    componentDidMount: function() {
+    componentDidMount: function () {
         var shopping_list_id = this.props.shopping_list.id;
-        this.serverRequest = $.get("shopping_list/full_recursive/"+shopping_list_id+".json", function (shopping_list) {
+        this.serverRequest = $.get("shopping_list/full_recursive/" + shopping_list_id + ".json", function (shopping_list) {
             console.log(shopping_list);
             this.setState({
                 shopping_list: shopping_list,
@@ -22,13 +22,20 @@ var ShoppingList = React.createClass({
         }
     },
     render: function () {
-        return <div>
+        return <div className="shopping_list">
             <div>shopping_list: {this.state.shopping_list.id}</div>
             <div>creator: {this.state.shopping_list.creator_id}</div>
             <div>household: {this.state.shopping_list.household_id}</div>
             <div>created: {this.state.shopping_list.created_at}</div>
             <div>updated: {this.state.shopping_list.updated_at}</div>
-            <div>
+            <table>
+                <thead>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Actions</th>
+                </thead>
+                <tbody>
                 {
                     this.state.shopping_list_items.map(function (shopping_list_item) {
                         return <ShoppingListItem key={shopping_list_item.id}
@@ -36,7 +43,8 @@ var ShoppingList = React.createClass({
                                                  amount={shopping_list_item.amount}/>
                     }.bind(this))
                 }
-            </div>
+                </tbody>
+            </table>
         </div>;
     },
 
