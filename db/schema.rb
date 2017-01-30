@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -23,10 +22,9 @@ ActiveRecord::Schema.define(version: 20160325135214) do
   create_table "households_users", id: false, force: :cascade do |t|
     t.integer "household_id", null: false
     t.integer "user_id",      null: false
+    t.index ["household_id", "user_id"], name: "index_households_users_on_household_id_and_user_id"
+    t.index ["user_id", "household_id"], name: "index_households_users_on_user_id_and_household_id"
   end
-
-  add_index "households_users", ["household_id", "user_id"], name: "index_households_users_on_household_id_and_user_id"
-  add_index "households_users", ["user_id", "household_id"], name: "index_households_users_on_user_id_and_household_id"
 
   create_table "invites", force: :cascade do |t|
     t.integer  "household_id"
@@ -46,10 +44,9 @@ ActiveRecord::Schema.define(version: 20160325135214) do
   create_table "items_stores", id: false, force: :cascade do |t|
     t.integer "item_id",  null: false
     t.integer "store_id", null: false
+    t.index ["item_id", "store_id"], name: "index_items_stores_on_item_id_and_store_id"
+    t.index ["store_id", "item_id"], name: "index_items_stores_on_store_id_and_item_id"
   end
-
-  add_index "items_stores", ["item_id", "store_id"], name: "index_items_stores_on_item_id_and_store_id"
-  add_index "items_stores", ["store_id", "item_id"], name: "index_items_stores_on_store_id_and_item_id"
 
   create_table "shopping_list_items", force: :cascade do |t|
     t.integer  "item_id"
@@ -87,9 +84,8 @@ ActiveRecord::Schema.define(version: 20160325135214) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
